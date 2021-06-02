@@ -1,20 +1,10 @@
 export function authHeader() {
-    let user = JSON.parse(AsyncStorage.getItem('user');
+    // return authorization header with jwt token
+    let user = JSON.parse(localStorage.getItem('user'));
 
-    if(user && user.token){
-        return 
-        
-        {
-            'Authorization' : 'Bearer ' + user.token
-        }
+    if (user && user.token) {
+        return { 'Authorization': 'Bearer ' + user.token };
+    } else {
+        return {};
     }
-    else{
-        console.log('user session expired')
-        //if the use is not available
-        //route him to login page
-        //once logged in route him to product page he want to visit
-        //use history (routing)
-    }
-
-    
-    //history in routing 
+}
